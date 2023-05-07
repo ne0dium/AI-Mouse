@@ -19,7 +19,8 @@ During training:
 3. when you reach the target, keep tracking the target for few seconds.
 4. release the button.
 5. repeat 1-5 for around 20 times.
-6. when you feel you are done simply close the pygame window
+6. when you feel you are done simply close the pygame window.
+7. Wait for the training to finish and a testing pygame window will appear.
 
 #### During evaluation: 
 
