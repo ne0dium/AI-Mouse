@@ -6,15 +6,15 @@ from targetWindow import run_eval
 model_type = "lstm"
 
 
-def evaluate(model, num_classes, input_size, hidden_size, num_layers, WIDTH, HEIGHT):
+def evaluate(model, num_classes, input_size, hidden_size, num_layers, WIDTH, HEIGHT, circle_radius, circle_speed):
     if model is None:
         model = LSTM1(num_classes, input_size, hidden_size, num_layers, 1)
-        model.load_state_dict(torch.load("mouseGUI.pt"))
+        model.load_state_dict(torch.load("mouse.pt"))
 
     model.cpu()
     model.eval()
 
-    run_eval(WIDTH, HEIGHT, model)
+    run_eval(WIDTH, HEIGHT, model,  circle_radius, circle_speed)
 
 
 if __name__ == "__main__":

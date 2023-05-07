@@ -93,14 +93,10 @@ def move(target, data, delays, predicted_delay):
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
 
 
-def run(WIDTH, HEIGHT):
+def run(WIDTH, HEIGHT, circle_radius, circle_speed):
     pointsList = []
     points = []
     # Colors
-
-    # Circle settings
-    circle_radius = 20
-    circle_speed = 2
 
     pygame.init()
 
@@ -172,7 +168,7 @@ def run(WIDTH, HEIGHT):
     return pointsList
 
 
-def run_eval(WIDTH, HEIGHT, model, seq=10, model_type='lstm'):
+def run_eval(WIDTH, HEIGHT, model,  circle_radius, circle_speed, seq=10, model_type='lstm'):
     # Initialize Pygame
     pygame.init()
 
@@ -180,8 +176,7 @@ def run_eval(WIDTH, HEIGHT, model, seq=10, model_type='lstm'):
     pygame.display.set_caption("Click the Circle")
 
     circle_speed_min = 4
-    circle_speed = 10
-    circle_radius = 5
+
     # Create an enemy
     enemy = Enemy(random.randint(circle_radius, WIDTH - circle_radius),
                   random.randint(circle_radius, HEIGHT - circle_radius), circle_radius, RED, circle_speed, circle_speed,
@@ -263,7 +258,7 @@ def run_eval(WIDTH, HEIGHT, model, seq=10, model_type='lstm'):
 
         predicted_frames = total_sleep // last_loop_duration - 6
 
-        use_prediction = True
+        use_prediction = False
         if use_prediction:
             distance = [(enemy.x + enemy_velocity[0] * predicted_frames) - x,
                         (enemy.y + enemy_velocity[1] * predicted_frames) - y]

@@ -23,7 +23,6 @@ def train(pointsList, num_epochs, learning_rate, input_size, hidden_size, num_la
         newpts = []
 
         for i in range(0, len(pts) - 1):
-            print(pts)
             newpts.append([pts[i][0], pts[i + 1][2]])
         newPointsList.append(newpts)
 

@@ -1,6 +1,7 @@
 from aiMouseEval import evaluate
 from aiMouseTrain import train
 from targetWindow import run
+import torch
 
 if __name__ == "__main__":
     WIDTH, HEIGHT = 1920, 1080
@@ -15,9 +16,15 @@ if __name__ == "__main__":
 
     seq = 10
 
-    pointsList = run(WIDTH, HEIGHT)
+    circle_radius = 10
+    circle_speed = 2
+
+    pointsList = run(WIDTH, HEIGHT, circle_radius, circle_speed)
 
     model = train(pointsList, num_epochs, learning_rate, input_size, hidden_size, num_layers, num_classes, seq, WIDTH,
                   HEIGHT, model_type="lstm")
 
-    evaluate(model, num_classes, input_size, hidden_size, num_layers, WIDTH, HEIGHT)
+    evaluate(model, num_classes, input_size, hidden_size, num_layers, WIDTH, HEIGHT, circle_radius, circle_speed)
+
+    # If you want to save the model
+    torch.save(model.state_dict(), "mouse.pt")
