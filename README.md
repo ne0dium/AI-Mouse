@@ -16,7 +16,7 @@ During training:
 
 1. place the mouse cursor at a random position inside the pygame window.
 2. press the right mouse button and drag your mouse towards the red circle. 
-3. when you reach the target, keep tracking the target for few seconds then.
+3. when you reach the target, keep tracking the target for few seconds.
 4. release the button.
 5. repeat 1-5 for around 20 times.
 6. when you feel you are done simply close the pygame window
