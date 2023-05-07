@@ -12,7 +12,7 @@
 
 `python main.py`
 
-During training:
+#### During training:
 
 1. place the mouse cursor at a random position inside the pygame window.
 2. press the right mouse button and drag your mouse towards the red circle. 
